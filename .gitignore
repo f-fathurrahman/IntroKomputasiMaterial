@@ -1,3 +1,8 @@
+IMG_*
+TMP_*
+OLD*
+TEMP_*
+
 *.gpw
 *.traj
 tmp
@@ -15,9 +20,6 @@ cache
 *.swp
 *.swo
 *~
-
-OLD*
-TEMP_*
 
 _minted-*/
 
