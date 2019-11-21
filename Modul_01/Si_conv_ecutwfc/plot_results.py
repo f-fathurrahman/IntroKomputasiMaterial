@@ -10,34 +10,33 @@ def do_plot(prefix):
     dEtot = None
     Etot_old = 0.0
 
-    x_kden = []
+    x_ec = []
     y = []
 
-    for i, kden in enumerate( np.linspace(1.0, 5.0, 9) ):  # FIXME: use glob
-        filename = prefix + "_" + str(kden)
+    for i, ec in enumerate( np.linspace(10.0, 50.0, 9) ):  # FIXME: use glob
+        filename = prefix + "_" + str(ec)
         res = ase.io.read(filename)
         Etot = res.get_total_energy()
 
-        x_kden.append(kden)
+        x_ec.append(ec)
         y.append(Etot)
 
         if i != 0:
-            dEtot = abs(Etot - Etot_old)
-            print("%18.10f %18.10f %18.10e" % (kden, Etot, dEtot))
+            dEtot = -(Etot - Etot_old)
+            print("%18.10f %18.10f %18.10e" % (ec, Etot, dEtot))
         else:
-            print("%18.10f %18.10f" % (kden, Etot))
+            print("%18.10f %18.10f" % (ec, Etot))
         Etot_old = Etot
 
     y = np.array(y)
     y = y - y[-1]
     plt.clf()
-    plt.plot(x_kden, y, marker="o")
+    plt.plot(x_ec, y, marker="o")
     plt.ylim(-0.001, 0.05)
     plt.ylabel("Relative energy [eV]")
-    plt.xlabel("kden")
+    plt.xlabel("ecutwfc [Ha]")
     plt.grid()
     plt.savefig("IMG_" + prefix + ".pdf")
 
 
-do_plot("LOG_kden")
-do_plot("LOG_kden_v2")
+do_plot("LOG_Si_fcc_ecutwfc")
