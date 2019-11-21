@@ -3,6 +3,9 @@ TMP_*
 OLD*
 TEMP_*
 
+*.npy
+*.cube
+*.xsf
 *.gpw
 *.traj
 tmp

@@ -1,0 +1,1 @@
+Investigate bs.energies and bs.path to create customized band structure plot.
