@@ -1,3 +1,18 @@
+#
+# This file is originally part of qeManager by me (Fadjar Fathurrahman).
+# Now the project seems to be abandoned in favor of other projects.
+#
+# This file is intended to help managing and automating PWSCF calculations.
+# To avoid installing qeManager, I combined several files into one big file
+# like this which is meant to be imported directly. 
+#
+# TODO: Documentation
+#
+# `PWSCFInput` is meant to be a low level PWSCF input manipulator. It consists
+# of lower "subclasses" such as `ControlNameList`, etc. All units conform
+# with the units used in PWSCF.
+
+
 import sys
 import os
 
@@ -198,7 +213,7 @@ class SystemNameList:
         for i in range(self.ntyp):
             self.starting_magnetization.append(0.5)
 
-    def set_smearing(self,smearing_type="mv",degauss=0.01):
+    def set_smearing(self, smearing_type="mv", degauss=0.01):
         self.occupations = "smearing"
         self.smearing = smearing_type
         self.degauss = degauss
