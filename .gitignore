@@ -3,6 +3,9 @@ TMP_*
 OLD*
 TEMP_*
 
+INP_*
+OUT_*
+
 *.npy
 *.cube
 *.xsf
