@@ -627,11 +627,11 @@ def read_bandstructure(logfile):
     return ebands
 
 
-def read_pwscf_energy(logfile,last=True):
+# If unit=1 no conversion is done
+def read_pwscf_energy(logfile,last=True,unit=1):
     """
     Read PWSCF energy
     """
-    print("Reading energy for file: ", logfile)
     f = open(logfile,"r")
     energy = []
     while True:
@@ -645,9 +645,9 @@ def read_pwscf_energy(logfile,last=True):
     f.close()
     #
     if last:
-        return energy[-1]*Ry
+        return energy[-1]*unit
     else:
-        return energy*Ry
+        return energy*unit
 
 
 #
