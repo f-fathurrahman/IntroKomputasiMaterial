@@ -67,10 +67,20 @@ if MODE == 2:
 
     import matplotlib.pyplot as plt
     import numpy as np
+
     plt.clf()
-    plt.plot(ECUTLIST[:Ndata-1], np.log(y[:Ndata-1]), marker="o")
+    plt.plot(ECUTLIST[:Ndata-1], y[:Ndata-1], marker="o")
+    plt.grid()
+    plt.xlabel("ecutwfc (Ry)")
+    plt.ylabel("ΔEtot (eV)")
+    plt.ylim(0.0, 0.05)
+    plt.savefig("IMG_conv_ecutwfc_lin.png", dpi=150)
+    plt.savefig("IMG_conv_ecutwfc_lin.pdf")
+
+    plt.clf()
+    plt.plot(ECUTLIST[:Ndata-1], np.log10(y[:Ndata-1]), marker="o")
     plt.grid()
     plt.xlabel("ecutwfc (Ry)")
     plt.ylabel("log10(ΔEtot (eV))")
-    #plt.ylim(-0.001, 0.05)
-    plt.savefig("IMG_conv_ecutwfc.pdf")
+    plt.savefig("IMG_conv_ecutwfc_log.png", dpi=150)    
+    plt.savefig("IMG_conv_ecutwfc_log.pdf")
