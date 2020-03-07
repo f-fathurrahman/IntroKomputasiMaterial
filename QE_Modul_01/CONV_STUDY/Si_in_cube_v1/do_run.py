@@ -1,5 +1,5 @@
 import sys
-sys.path.append("../../python_modules")
+sys.path.append("../../../python_modules")
 
 from qeManager_PWSCF import *
 
@@ -28,6 +28,7 @@ for i, ec in enumerate(ECUTLIST):
     pwinput = PWSCFInput(atoms, pspFiles, filename="PWINPUT", gamma_only=True)
     pwinput.CONTROL.pseudo_dir = "/home/efefer/pseudo/HGH"
     pwinput.SYSTEM.ecutwfc = ec
+    pwinput.SYSTEM.ecutrho = 4.0*ec
     pwinput.set_smearing()
     pwinput.filename = "INP_PW_ecutwfc_" + str(i)
     INP_FILELIST.append(pwinput.filename)
