@@ -1,5 +1,5 @@
 import sys
-sys.path.append("../../python_modules")
+sys.path.append("/home/efefer/WORKS/my_github_repos/IntroKomputasiMaterial/python_modules")
 
 from qeManager_PWSCF import *
 
@@ -26,6 +26,7 @@ for i, ec in enumerate(ECUTLIST):
     pwinput = PWSCFInput(atoms, pspFiles, filename="PWINPUT", kpt_automatic=True, Nk=[4,4,4])
     pwinput.CONTROL.pseudo_dir = "/home/efefer/pseudo/HGH"
     pwinput.SYSTEM.ecutwfc = ec
+    pwinput.SYSTEM.ecutrho = 4.0*ec
     pwinput.filename = "INP_PW_ecutwfc_" + str(i)
     INP_FILELIST.append(pwinput.filename)
     PWINPUTS.append(pwinput)
@@ -74,6 +75,7 @@ if MODE == 2:
     plt.xlabel("ecutwfc (Ry)")
     plt.ylabel("ΔEtot (eV)")
     plt.ylim(0.0, 0.05)
+    plt.title(pspFiles[0])
     plt.savefig("IMG_conv_ecutwfc_lin.png", dpi=150)
     plt.savefig("IMG_conv_ecutwfc_lin.pdf")
 
@@ -82,5 +84,6 @@ if MODE == 2:
     plt.grid()
     plt.xlabel("ecutwfc (Ry)")
     plt.ylabel("log10(ΔEtot (eV))")
+    plt.title(pspFiles[0])
     plt.savefig("IMG_conv_ecutwfc_log.png", dpi=150)    
     plt.savefig("IMG_conv_ecutwfc_log.pdf")
