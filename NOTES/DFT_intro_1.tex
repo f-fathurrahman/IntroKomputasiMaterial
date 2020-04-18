@@ -1,0 +1,94 @@
+%\documentclass[a4paper,11pt]{article} % print setting
+\documentclass[a4paper,12pt]{article} % screen setting
+
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=1.5cm,bmargin=1.5cm,lmargin=1.5cm,rmargin=1.5cm}
+
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\usepackage{cmbright}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{fontspec}
+\setmonofont{FreeMono}
+
+%\usepackage{sfmath}
+%\usepackage{mathptmx}
+%\usepackage{mathpazo}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{xcolor}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{minted}
+\newminted{julia}{breaklines,fontsize=\small}
+\newminted{bash}{breaklines,fontsize=\small}
+\newminted{text}{breaklines,fontsize=\small}
+
+\newcommand{\txtinline}[1]{\mintinline{text}{#1}}
+\newcommand{\jlinline}[1]{\mintinline{julia}{#1}}
+
+\newmintedfile[juliafile]{julia}{breaklines,fontsize=\small}
+
+\definecolor{mintedbg}{rgb}{0.90,0.90,0.90}
+\usepackage{mdframed}
+
+\BeforeBeginEnvironment{minted}{\begin{mdframed}[backgroundcolor=mintedbg]}
+\AfterEndEnvironment{minted}{\end{mdframed}}
+
+\usepackage{setspace}
+
+\onehalfspacing
+
+\usepackage{appendix}
+
+
+\begin{document}
+
+
+\title{Teori Fungsional Kerapatan}
+\author{Fadjar Fathurrahman}
+\date{}
+\maketitle
+
+\section{Interaksi Coulomb}
+
+Energi interaksi antara dua elektron:
+\begin{equation}
+E_{\mathrm{ee}} = \frac{e^2}{4\pi\epsilon_{0}d_{ee}}
+\end{equation}
+
+Energi interaksi antara dua inti atom dengan nomor atom $Z$:
+\begin{equation}
+E_{\mathrm{nn}} = \frac{Z^2e^2}{4\pi\epsilon_{0}d_{\mathrm{nn}}}
+\end{equation}
+
+Energi interaksi antara elektron dan inti atom:
+\begin{equation}
+E_{\mathrm{en}} = -\frac{Ze^2}{4\pi\epsilon_{0}d_{\mathrm{en}}}
+\end{equation}
+
+Persamaan Schroedinger:
+\begin{equation}
+\left[ \frac{\mathbf{p}^2}{2m_{e}} + V(\mathbf{r}) \right] \psi(\mathbf{r}) = E\psi(\mathbf{r})
+\end{equation}
+
+Fungsi gelombang banyak-partikel:
+\begin{equation}
+\Psi = 
+\Psi\left(\mathbf{r}_{1}, \mathbf{r}_{2}, \ldots, \mathbf{r}_{N};
+\mathbf{R}_{1}, \mathbf{R}_{2},\ldots,\mathbf{R}_{N_{\mathrm{at}}}
+\right)
+\end{equation}
+
+\bibliographystyle{unsrt}
+\bibliography{BIBLIO}
+
+\end{document}
