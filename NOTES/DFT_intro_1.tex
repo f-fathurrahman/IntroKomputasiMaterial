@@ -10,12 +10,12 @@
 \usepackage{cmbright}
 \renewcommand{\familydefault}{\sfdefault}
 
-\usepackage{fontspec}
-\setmonofont{FreeMono}
-
-%\usepackage{sfmath}
 %\usepackage{mathptmx}
+%\usepackage{sfmath}
 %\usepackage{mathpazo}
+
+\usepackage{fontspec}
+%\setmonofont{FreeMono}
 
 \usepackage{hyperref}
 \usepackage{url}
@@ -82,11 +82,129 @@ Persamaan Schroedinger:
 
 Fungsi gelombang banyak-partikel:
 \begin{equation}
-\Psi = 
+\Psi =
 \Psi\left(\mathbf{r}_{1}, \mathbf{r}_{2}, \ldots, \mathbf{r}_{N};
 \mathbf{R}_{1}, \mathbf{R}_{2},\ldots,\mathbf{R}_{N_{\mathrm{at}}}
 \right)
 \end{equation}
+
+Persamaan Schroedinger banyak-partikel:
+\begin{equation}
+\left[
+-\sum_{i}\frac{\nabla^{2}_{i}}{2} -\sum_{i}\frac{\nabla^{2}_{I}}{2M_{I}}
+-\sum_{i,I} \frac{Z_{I}}{\left| \mathbf{r}_{i} - \mathbf{R}_{I} \right|}
++\frac{1}{2}\sum_{i \neq j} \frac{1}{\left| \mathbf{r}_{i} - \mathbf{r}_{j} \right|}
++\frac{1}{2}\sum_{I \neq J} \frac{Z_{I} Z_{J}}{\left| \mathbf{R}_{i} - \mathbf{R}_{j} \right|}
+\right] \Psi = E_{\mathrm{tot}} \Psi
+\end{equation}
+
+Aproksimasi clamped-nuclei:
+
+\begin{equation}
+E = E_{\mathrm{tot}} - \frac{1}{2} \sum_{I \neq J}
+\frac{Z_{I} Z_{J}}{\left| \mathbf{R}_{I} - \mathbf{R}_{J} \right|}
+\end{equation}
+
+Persamaan untuk elektron:
+\begin{equation}
+\left[
+-\sum_{i}\frac{\nabla^{2}_{i}}{2}
+-\sum_{i,I} \frac{Z_{I}}{\left| \mathbf{r}_{i} - \mathbf{R}_{I} \right|}
++\frac{1}{2}\sum_{i \neq j} \frac{1}{\left| \mathbf{r}_{i} - \mathbf{r}_{j} \right|}
+\right] \Psi = E \, \Psi
+\end{equation}
+
+Definisikan:
+\begin{equation}
+V_{\mathrm{n}} = -\sum_{I} \frac{Z_{I}}{\left| \mathbf{r} - \mathbf{R}_{I} \right|}
+\end{equation}
+sehingga
+\begin{equation}
+\left[
+-\sum_{i}\frac{\nabla^{2}_{i}}{2}
++\sum_{i} V_{\mathrm{n}}(\mathbf{r}_{i})
++\frac{1}{2}\sum_{i \neq j} \frac{1}{\left| \mathbf{r}_{i} - \mathbf{r}_{j} \right|}
+\right] \Psi = E \, \Psi
+\end{equation}
+Definisikan Hamiltonian banyak-elektron:
+\begin{equation}
+\hat{H}(\mathbf{r}_{1},\ldots,\mathbf{r}_{N}) =
+\left[
+-\sum_{i}\frac{\nabla^{2}_{i}}{2}
++\sum_{i} V_{\mathrm{n}}(\mathbf{r}_{i})
++\frac{1}{2}\sum_{i \neq j} \frac{1}{\left| \mathbf{r}_{i} - \mathbf{r}_{j} \right|}
+\right]
+\end{equation}
+Persaman Schroedinger:
+\begin{equation}
+\hat{H} \, \Psi = E \, \Psi
+\end{equation}
+
+Hamiltonian elektron-tunggal:
+\begin{equation}
+\hat{H}_{0}(\mathbf{r}) = -\frac{1}{2}\nabla^2 + V_{n}(\mathbf{r})
+\end{equation}
+
+Sehingga Hamiltonian banyak-elektron juga dapat dituliskan menjadi:
+\begin{equation}
+\hat{H}(\mathbf{r}_{1},\ldots,\mathbf{r}_{N}) =
+\sum_{i} \hat{H}_{0}(\mathbf{r}_{i}) +
+\frac{1}{2}\sum_{i \neq j}\frac{1}{\left| \mathbf{r}_{i} - \mathbf{r}_{j} \right|}
+\end{equation}
+
+
+\section{Aproksimasi elektron independen}
+
+Anggap interaksi Coulomb antara elektron tidak ada.
+
+\begin{equation}
+\sum_{i} \hat{H}_{0}(\mathbf{r}_{i})\, \Psi = E \, \Psi
+\end{equation}
+
+Aproksimasi:
+\begin{equation}
+\Psi(\mathbf{r}_{1},\mathbf{r}_{2},\ldots,\mathbf{r}_{N}) =
+\phi_{1}(\mathbf{r}_{1}) \phi_{1}(\mathbf{r}_{2}) \ldots \phi_{N}(\mathbf{r}_{N})
+\end{equation}
+
+\begin{equation}
+\hat{H}_{0}(\mathbf{r}_{i}) \phi_{i}(\mathbf{r}_{i}) = \varepsilon_{i}\phi_{i}
+\end{equation}
+
+\begin{equation}
+\left[ \sum_{i} \hat{H}_{0}(\mathbf{r}_{i}) \right]
+\phi_{1}(\mathbf{r}_{1}) \ldots \phi_{N}(\mathbf{r}_{N}) =
+E\,\phi_{1}(\mathbf{r}_{1}) \ldots \phi_{N}(\mathbf{r}_{N})
+\end{equation}
+
+\begin{align*}
+\left[ \hat{H}_{0}(\mathbf{r}_{1}) \phi_{1}(\mathbf{r})_{1} \right]
+\phi_{2}(\mathbf{r}_{2}) \ldots \phi_{N}(\mathbf{r}_{N}) +
+\phi_{1}(\mathbf{r}_{1}) \left[ \hat{H}_{0}(\mathbf{r}_{2}) \phi_{2}(\mathbf{r})_{2} \right]
+\ldots \phi_{N}(\mathbf{r}_{N}) + \\
+\phi_{1}(\mathbf{r}_{1}) \ldots \left[ \hat{H}_{0}(\mathbf{r}_{N}) \phi_{N}(\mathbf{r})_{N} \right]
+= E\,\phi_{1}(\mathbf{r}_{1}) \ldots \phi_{N}(\mathbf{r}_{N})
+\end{align*}
+Sehingga:
+\begin{equation}
+E = \varepsilon_{1} + \varepsilon_{2} + \ldots + \varepsilon_{N}
+\end{equation}
+
+\section{Prinsip ekslusi Pauli}
+
+\begin{equation}
+\Psi(\mathbf{r}_{1},\mathbf{r}_{2}) = \frac{1}{\sqrt{2}}
+\left[ \phi_{1}(\mathbf{r}_{1}) \phi_{2}(\mathbf{r}_{2}) -
+\phi_{1}(\mathbf{r}_{2}) \phi_{2}(\mathbf{r}_{1})
+\right]
+\end{equation}
+
+\section{Aproksimasi medan rata-rata}
+
+Mean-field approximation
+
+
+
 
 \bibliographystyle{unsrt}
 \bibliography{BIBLIO}
