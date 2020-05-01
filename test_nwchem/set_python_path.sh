@@ -1,0 +1,1 @@
+export PYTHONPATH="/home/efefer/WORKS/my_github_repos/IntroKomputasiMaterial/python_modules:$PYTHONPATH"
