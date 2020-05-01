@@ -1,4 +1,0 @@
-from qeManager_NWCHEM import *
-
-version = read_nwchem_version("../WORKS_NWCHEM/C2H2O/MOLECULE.nwout")
-print("version = ", version)
