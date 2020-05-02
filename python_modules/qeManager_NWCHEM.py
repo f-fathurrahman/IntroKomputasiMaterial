@@ -50,7 +50,7 @@ def print_traj_xyz_forces(traj, traj_forces, filename):
     f.close()
 
 
-def read_nwchem_out_geoopt(filename):
+def read_nwchem_out_geoopt(filename, theory_level="dft"):
 
     Natoms = read_nwchem_out_Natoms(filename)
     
@@ -63,6 +63,12 @@ def read_nwchem_out_geoopt(filename):
 
     ifound_geom = 0
     ifound_grad = 0
+
+
+    if theory_level == "rhf":
+        STR_GRADIENT = "RHF ENERGY GRADIENTS"
+    else:
+        STR_GRADIENT = "DFT ENERGY GRADIENTS"
 
     while True:
         
@@ -96,7 +102,7 @@ def read_nwchem_out_geoopt(filename):
                 coords.append([x,y,z])
             traj.append( Atoms(symbs, coords) )
 
-        if "DFT ENERGY GRADIENTS" in line:
+        if STR_GRADIENT in line:
             ifound_grad = ifound_grad + 1
             # Skip lines
             for i in range(3):
