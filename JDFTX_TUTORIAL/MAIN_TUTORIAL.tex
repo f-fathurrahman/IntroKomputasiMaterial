@@ -1,0 +1,45 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\usepackage{fontspec}
+\setmonofont{FreeMono}
+%\setmonofont{Source Code Pro}
+
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{xcolor}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{braket}
+
+\usepackage[normalem]{ulem}
+
+\usepackage{mhchem}
+
+\usepackage{minted}
+\newminted{julia}{breaklines}
+\newminted{python}{breaklines}
+\newminted{text}{breaklines}
+
+\newcommand{\txtinline}[1]{\mintinline{text}{#1}}
+
+
+\begin{document}
+
+\title{JDFTx tutorial}
+\author{Ravishankar Sundaraman}
+\date{}
+\maketitle
+
+
+Tes
+
+\input{Pt100_setup}
+
+\end{document}
