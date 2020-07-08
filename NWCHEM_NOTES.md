@@ -3,7 +3,7 @@
 Conventions:
 
 - Extension for NWChem input file: `.nw`
-- Extension for NWChem log file: `.nwo`
+- Extension for NWChem log file: `.nwo` or `.nwout`.
 
 Running NWChem:
 ```
@@ -18,7 +18,7 @@ nwchem MOLECULE.nw > MOLECULE.nw
 ## About `echo`
 
 If `echo` is specified in the input file, then the input file will be echoed
-to stdout. This is useful to debug or reproducibility.
+to stdout. This is useful for debugging purpose and/or reproducibility.
 
 ## Hartree-Fock 
 
@@ -65,8 +65,29 @@ Using `CONVERGENCE rabuck` or `SMEAR 0.01`.
 
 ## Calculating properties
 
+```
+task property
+  dipole
+end
+
+task dft property
+```
+
+It seems that running `task dft energy property` is the same as `task dft property`.
+
 ## Molden
 
+```
+property
+  vectors PREFIX.movecs
+  moldenfile
+  molden_norm janpa
+end
+```
 
+The MOs are read from `PREFIX.movecs`.
 
+## Basis spherical
 
+It seems that specifying the basis to be spherical is essential
+to obtain similar energy result to Gaussian09.
